@@ -10,6 +10,7 @@ public class GameExit : MonoBehaviour {
      */
     public void SalirJuego () {
             Debug.Log("Saliendo del juego...");
+            Application.Quit();
     }
 
 }
