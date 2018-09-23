@@ -8,6 +8,6 @@ public class PantallaInicio : MonoBehaviour {
     public void CargarMenuInicio()
     {
         Debug.Log("De vuelta a pantalla inicial");
-        SceneManager.LoadScene("Partida Inicial");
+        SceneManager.LoadScene("Pantalla Inicial");
     }
 }

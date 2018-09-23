@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour {
 
@@ -41,6 +42,7 @@ public class GameplayManager : MonoBehaviour {
         else
         {
             //Final de partida
+            SceneManager.LoadScene("Pantalla Final");
         }
     }
     void FillUI() {
