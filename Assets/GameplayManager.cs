@@ -18,11 +18,13 @@ public class GameplayManager : MonoBehaviour {
     public Text historyText;
     public Transform answersParent;
     public GameObject buttonAnswer;
+    public GameObject pauseMenu;
     private StoryNode current;
     void Start()
     {
 
         Debug.Log("INICIO DESDE GAMEPLAY Manager");
+        pauseMenu.SetActive(false);
         current = StoryFiller.FillStory();
         Debug.Log("Rellenando datos");
         Debug.Log(current);
@@ -30,6 +32,21 @@ public class GameplayManager : MonoBehaviour {
         historyText.text = "";
         FillUI();
     }
+
+    void Update() {
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+        }
+    }
+
+    public void RestartScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadStartScene() {
+        SceneManager.LoadScene("Pantalla Inicial");
+    }
+
     void AnswerSelected(int index)
     {
         print(index);
@@ -42,7 +59,8 @@ public class GameplayManager : MonoBehaviour {
         else
         {
             //Final de partida
-            SceneManager.LoadScene("Pantalla Final");
+            pauseMenu.SetActive(true);
+            //SceneManager.LoadScene("Pantalla Final");
         }
     }
     void FillUI() {
