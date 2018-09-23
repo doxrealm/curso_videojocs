@@ -74,19 +74,19 @@ public class GameplayManager : MonoBehaviour {
         }
 
         bool isLeft = true;
-        float height = 50;
+        float height = 20;
         int index = 0;
         foreach (string answer in current.answers)
         {
             GameObject buttonAnswerCopy = Instantiate(buttonAnswer);
-            buttonAnswerCopy.transform.parent = answersParent;
+            buttonAnswerCopy.transform.SetParent(answersParent);
             float x = buttonAnswerCopy.GetComponent<RectTransform>().rect.x * 1.1f;
 
 
             buttonAnswerCopy.GetComponent<RectTransform>().localPosition = new Vector3(isLeft ? x : -x, height, 0);
 
 
-            if (!isLeft) height += buttonAnswerCopy.GetComponent<RectTransform>().rect.y * 2.5f;
+            if (!isLeft) height += buttonAnswerCopy.GetComponent<RectTransform>().rect.y * 2f;
 
 
             isLeft = !isLeft;
